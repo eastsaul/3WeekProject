@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PlayerInfo // 플레이어
+public class PlayerInfo // 플레이어
 {
     public static string playerName = default;
     public static int playerHp = default;
