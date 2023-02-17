@@ -20,10 +20,10 @@ public class TestBed : MonoBehaviour
     void Start()
     {
         //!= 위와 같은 이유
-        attackCall = PlayerInfo.attack; //x
-        defanceCall = PlayerInfo.defance; //x
-        criticalCall = PlayerInfo.critical; //x
-        avoidCall = PlayerInfo.avoid; //x
+        attackCall = PlayerInfo.playerAttack; //x
+        defanceCall = PlayerInfo.playerDefance; //x
+        criticalCall = PlayerInfo.playerCritical; //x
+        avoidCall = PlayerInfo.playerAvoid; //x
 
         atkTxt = GameObject.Find("ATKtxt").GetComponent<TMP_Text>();
         dfTxt = GameObject.Find("DFtxt").GetComponent<TMP_Text>();

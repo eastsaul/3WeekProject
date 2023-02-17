@@ -47,10 +47,10 @@ public class AbillCrontroll : MonoBehaviour // 플레이어 정보 팝업
     {
         //if (atkTxt != null && dfTxt != null && crTxt != null && avTxt != null)
         {
-            atkTxt.text = $"{PlayerInfo.attack}";
-            dfTxt.text = $"{PlayerInfo.defance}";
-            crTxt.text = $"{PlayerInfo.critical}%";
-            avTxt.text = $"{PlayerInfo.avoid}%";
+            atkTxt.text = $"{PlayerInfo.playerAttack}";
+            dfTxt.text = $"{PlayerInfo.playerDefance}";
+            crTxt.text = $"{PlayerInfo.playerCritical}%";
+            avTxt.text = $"{PlayerInfo.playerAvoid}%";
         }
 
     }

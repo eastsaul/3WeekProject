@@ -4,10 +4,14 @@ using UnityEngine;
 
 public static class PlayerInfo // 플레이어
 {
+    public static string playerName = default;
+    public static int playerHp = default;
+    public static int playerMaxHp = default;
+
     // 플레이어 기본 능력치
-    public static int attack = 13;
-    public static int defance = 12;
-    public static int critical = 14;
-    public static int avoid = 3;
+    public static int playerAttack = default;
+    public static int playerDefance = default;
+    public static int playerCritical = default;
+    public static int playerAvoid = default;
 
 }
