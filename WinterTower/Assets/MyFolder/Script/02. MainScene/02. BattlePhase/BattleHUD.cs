@@ -27,9 +27,9 @@ public class BattleHUD : MonoBehaviour
 
     }
 
-    //void Awake(Unit unit)
+    //void update()
     //{
-    //    HpText.text = $"{unit.currentHP}/{unit.maxHP}";
+    //    hptext.text = $"{unit.currenthp}/{unit.maxhp}";
 
     //}
 }

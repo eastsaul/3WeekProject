@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
-public class BattleSystem : MonoBehaviour
+public enum BattleStateTest { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+
+public class BattleTest : MonoBehaviour
 {
-
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
-
-    public GameManager gameManager;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -28,21 +25,16 @@ public class BattleSystem : MonoBehaviour
     //public HUDTest playerHUD;
     //public HUDTest enemyHUD;
 
-    public GameObject trophyInfoPopUp;
-    public GameObject battlePhaseUp;
-
-    public bool isMonsterDown = default;
-
-    public BattleState state;
+    public BattleStateTest state;
 
     // Start is called before the first frame update
     void Start()
     {
-        state = BattleState.START;
+        state = BattleStateTest.START;
         StartCoroutine(SetupBattle());
     }
 
-    IEnumerator SetupBattle() 
+    IEnumerator SetupBattle()
     {
         GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGo.GetComponent<Unit>();
@@ -57,11 +49,11 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.PLAYERTURN;
+        state = BattleStateTest.PLAYERTURN;
         PlayerTurn();
     }
 
-    IEnumerator PlayerAttack() 
+    IEnumerator PlayerAttack()
     {
         // Damage the enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
@@ -77,19 +69,19 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             // End the battle
-            state = BattleState.WON;
+            state = BattleStateTest.WON;
             EndBattle();
         }
-        else 
+        else
         {
             // Enemy turn
-            state = BattleState.ENEMYTURN;
+            state = BattleStateTest.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
 
     }
 
-    IEnumerator EnemyTurn() 
+    IEnumerator EnemyTurn()
     {
         dialogueText.text = enemyUnit.unitName + " attacks!";
 
@@ -103,41 +95,34 @@ public class BattleSystem : MonoBehaviour
 
         if (isDead)
         {
-            state = BattleState.LOST;
+            state = BattleStateTest.LOST;
             EndBattle();
         }
-        else 
+        else
         {
-            state = BattleState.PLAYERTURN;
+            state = BattleStateTest.PLAYERTURN;
             PlayerTurn();
         }
     }
 
-    void EndBattle() 
+    void EndBattle()
     {
-        if (state == BattleState.WON)
+        if (state == BattleStateTest.WON)
         {
             dialogueText.text = "You won the battle!";
-
-            isMonsterDown = true;
-
-            battlePhaseUp.SetActive(false);
-            trophyInfoPopUp.SetActive(true);
-            //gameManager.NextStage();
-        } 
-        else if (state == BattleState.LOST) 
+        }
+        else if (state == BattleStateTest.LOST)
         {
             dialogueText.text = "You were defeated.";
         }
-
     }
 
-    void PlayerTurn() 
+    void PlayerTurn()
     {
-        dialogueText.text = "Choose an action";  
+        dialogueText.text = "Choose an action";
     }
 
-    IEnumerator PlayerHeal() 
+    IEnumerator PlayerHeal()
     {
         playerUnit.Heal(5);
         playerHUD.SetHP(playerUnit.currentHP);
@@ -145,14 +130,14 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.ENEMYTURN;
+        state = BattleStateTest.ENEMYTURN;
         StartCoroutine(EnemyTurn());
 
     }
 
-    public void OnAttackButton() 
+    public void OnAttackButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state != BattleStateTest.PLAYERTURN)
             return;
 
         StartCoroutine(PlayerAttack());
@@ -160,7 +145,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnHealButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state != BattleStateTest.PLAYERTURN)
             return;
 
         StartCoroutine(PlayerHeal());
