@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 
@@ -42,7 +43,7 @@ public class BattleTest : MonoBehaviour
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
 
-        dialogueText.text = "A wild " + enemyUnit.unitName + " approaches...";
+        dialogueText.text = "살기를 뿜으며 " + enemyUnit.unitName + "가 접근중...";
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
@@ -83,7 +84,7 @@ public class BattleTest : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyUnit.unitName + " attacks!";
+        dialogueText.text = enemyUnit.unitName + " 의 공격!";
 
         yield return new WaitForSeconds(1f);
 

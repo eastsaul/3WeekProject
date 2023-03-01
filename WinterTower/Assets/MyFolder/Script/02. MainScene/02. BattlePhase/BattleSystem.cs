@@ -50,7 +50,7 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
 
-        dialogueText.text = "A wild " + enemyUnit.unitName + " approaches...";
+        dialogueText.text = "살기를 뿜으며 " + enemyUnit.unitName + "가 접근중...";
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
@@ -91,7 +91,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn() 
     {
-        dialogueText.text = enemyUnit.unitName + " attacks!";
+        dialogueText.text = enemyUnit.unitName + " 의 공격!";
 
         yield return new WaitForSeconds(1f);
 
@@ -117,7 +117,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
-            dialogueText.text = "You won the battle!";
+            dialogueText.text = " 승리!";
 
             isMonsterDown = true;
 
@@ -127,14 +127,14 @@ public class BattleSystem : MonoBehaviour
         } 
         else if (state == BattleState.LOST) 
         {
-            dialogueText.text = "You were defeated.";
+            dialogueText.text = " 패배";
         }
 
     }
 
     void PlayerTurn() 
     {
-        dialogueText.text = "Choose an action";  
+        dialogueText.text = " 어떻게 할까?";  
     }
 
     IEnumerator PlayerHeal() 

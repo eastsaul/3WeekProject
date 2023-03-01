@@ -50,8 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5b9044de3ac4f45a35f661d11280a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: "\uACE8\uB818"
+  unitName: "\uC2A4\uCEEC \uD558\uC6B4\uB4DC"
   damage: 10
+  defance: 0
   maxHP: 100
   currentHP: 100
 --- !u!1 &7862804668138260537
@@ -90,7 +91,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 200, y: -50}
-  m_SizeDelta: {x: 414, y: 396}
+  m_SizeDelta: {x: 443, y: 627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7862804668138260538
 CanvasRenderer:
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 313553100, guid: 9892d4ee05e64d24dbac8702188e3a1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d634562fa946874587aa46da140135e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

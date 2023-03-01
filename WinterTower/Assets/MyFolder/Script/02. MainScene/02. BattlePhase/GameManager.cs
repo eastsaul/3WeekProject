@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int stageIndex;
-    public GameObject[]Stages = new GameObject[4];
+    public GameObject[]Stages = new GameObject[5];
 
     public void NextStage() 
     {
@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     {
         Stages[1].transform.localScale = Vector3.one; // new Vector3(1f, 1f, 1f) 와 같은 표현임, 현업에서 자주 씀
         Stages[1].SetActive(false); // 시작은 비활성화
-        //Stages[2].transform.localScale = Vector3.one; // new Vector3(1f, 1f, 1f) 와 같은 표현임, 현업에서 자주 씀
-        //Stages[2].SetActive(false); // 시작은 비활성화
+        Stages[2].transform.localScale = Vector3.one;
+        Stages[2].SetActive(false);
+        Stages[3].transform.localScale = Vector3.one;
+        Stages[3].SetActive(false);
+        Stages[4].transform.localScale = Vector3.one;
+        Stages[4].SetActive(false);
         //CardInfoUp.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
     }
 
